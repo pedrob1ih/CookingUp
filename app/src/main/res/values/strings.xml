@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">cookingUp</string>
+    <string name="action_settings">Settings</string>
+    <string name="seleccionaCantidad">Selecciona Cantidad</string>
+    <string name="tiempoNecesario">Tiempo Necesario</string>
+    <string name="ponerAlarma">Poner Alarma</string>
+    <string name="registrarPlato">Registrar Plato</string>
+    <string name="nombre">Nombre </string>
+    <string name="tiempo">Tiempo </string>
+    <string name="peso">Peso </string>
+    <string name="descripcion">Descripción </string>
+    <string name="registrar">Registrar </string>
+    <string name="editar">Editar</string>
+    <string name="borrar">Borrar</string>
+</resources>
