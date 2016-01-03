@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         try{
             listaPlatos=f.cargar();
+            Log.i("imfo","se han cargado");
         }
         catch (Exception e){
             listaPlatos= new ArrayList();
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         f.guardar(listaPlatos);
+        Log.i("info", "se han guardado");
         super.onDestroy();
     }
 
@@ -108,13 +111,16 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.registrar) {
-            Intent i = new Intent(this,RegistrarPlato.class);
-            startActivityForResult(i, 1);
-            return true;
+        switch (item.getItemId()){
+            case R.id.mBorrar:
+                listView.get
+            break;
+            case R.id.mEditar:
+            break;
+            case R.id.mRegistrar:
+                Intent i = new Intent(this,RegistrarPlato.class);
+                startActivityForResult(i, 1);
+            break;
         }
 
         return super.onOptionsItemSelected(item);

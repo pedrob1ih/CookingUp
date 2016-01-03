@@ -37,7 +37,7 @@ public class Fichero {
         }
         catch (Exception ex)
         {
-            Log.e("Ficheros", ex.getMessage());
+            Log.e("guardar", ex.getMessage());
         }
     }
     public ArrayList cargar(){
@@ -52,19 +52,25 @@ public class Fichero {
             platos = fin.readLine();
             fin.close();
         } catch (Exception ex) {
-            Log.e("Ficheros", ex.getMessage());
+            Log.e("cargar", ex.getMessage());
         }
-        String aPlatos[]=platos.split(",");
-        if(aPlatos.length>2)
-            for(int i=0;i<aPlatos.length;i++){
-                Plato p= new Plato();
-                p.setNombre(aPlatos[i]);
-                i++;
-                p.setTiempo(Double.parseDouble(aPlatos[i]));
-                i++;
-                p.setDescripcion(aPlatos[i]);
-                lPlato.add(p);
-            }
+        try{
+            String aPlatos[]=platos.split(",");
+            if(aPlatos.length>2)
+                for(int i=0;i<aPlatos.length;i++){
+                    Plato p= new Plato();
+                    p.setNombre(aPlatos[i]);
+                    i++;
+                    p.setTiempo(Double.parseDouble(aPlatos[i]));
+                    i++;
+                    p.setDescripcion(aPlatos[i]);
+                    lPlato.add(p);
+                }
+        }
+        catch (Exception e){
+            ;
+        }
+
         return lPlato;
     }
     public void setNombre(String nombre) {this.nombre = nombre;}

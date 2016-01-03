@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.dam.cookingup.MainActivity">
     <item
-        android:id="@+id/editar"
+        android:id="@+id/mEditar"
         android:orderInCategory="100"
         android:title="@string/editar"
         app:showAsAction="never" />
     <item
-        android:id="@+id/borrar"
+        android:id="@+id/mBorrar"
         android:orderInCategory="100"
         android:title="@string/borrar"
         app:showAsAction="never" />
