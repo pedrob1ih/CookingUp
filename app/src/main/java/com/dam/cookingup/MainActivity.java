@@ -74,10 +74,30 @@ public class MainActivity extends AppCompatActivity {
             PopupMenu popo=new PopupMenu(getApplicationContext(),view);
             MenuInflater inflater= popo.getMenuInflater();
             inflater.inflate(R.menu.menu_onlongclick, popo.getMenu());
+            popo.setOnMenuItemClickListener(listPopUp);
             popo.show();
             return false;
         }
     };
+    MenuItem.OnMenuItemClickListener listPopUp= new MenuItem.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.mBorrar:
+                    listaPlatos.remove(listView.getSelectedItem());
+                    ArrayAdapter arrayAdapter= new ArrayAdapter(getApplicationContext(),
+                            R.layout.support_simple_spinner_dropdown_item,listaPlatos);
+                    listView.setAdapter(arrayAdapter);
+                    Log.i("info","se ha borrado el item");
+                    break;
+                case R.id.mEditar:
+                    break;
+            }
+
+
+            return false;
+        }
+    } ;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -112,11 +132,7 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()){
-            case R.id.mBorrar:
-                listView.get
-            break;
-            case R.id.mEditar:
-            break;
+
             case R.id.mRegistrar:
                 Intent i = new Intent(this,RegistrarPlato.class);
                 startActivityForResult(i, 1);
