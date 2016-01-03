@@ -79,12 +79,13 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
-    MenuItem.OnMenuItemClickListener listPopUp= new MenuItem.OnMenuItemClickListener() {
+    PopupMenu.OnMenuItemClickListener listPopUp= new PopupMenu.OnMenuItemClickListener() {
+
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()){
                 case R.id.mBorrar:
-                    listaPlatos.remove(listView.getSelectedItem());
+                    listaPlatos.remove((Plato)listView.getSelectedItem());
                     ArrayAdapter arrayAdapter= new ArrayAdapter(getApplicationContext(),
                             R.layout.support_simple_spinner_dropdown_item,listaPlatos);
                     listView.setAdapter(arrayAdapter);
@@ -93,8 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.mEditar:
                     break;
             }
-
-
             return false;
         }
     } ;
