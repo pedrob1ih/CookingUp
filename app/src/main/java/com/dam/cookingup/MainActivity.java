@@ -33,14 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
         f= new Fichero(getApplicationContext(),"DatosPlatos");
         listaPlatos= new ArrayList();
-        listaPlatos=f.cargar();
-//        for(int i=0;i<10;i++){
-//            Plato p= new Plato();
-//            p.setNombre("Salchipapa a la brasa");
-//            p.setDescripcion("Ta Weno Pejo quilloTa Weno Pejo quilloTa Weno Pejo quilloTa Weno Pejo quilloTa Weno Pejo quillo");
-//            p.setTiempo(1.33);
-//            listaPlatos.add(p);
-//        }
+        try{
+            listaPlatos=f.cargar();
+        }
+        catch (Exception e){
+            Plato p= new Plato();
+            listaPlatos.add(p);
+            f.guardar(listaPlatos);
+        }
+
+        for(int i=0;i<10;i++){
+            Plato p= new Plato();
+            p.setNombre("Plato");
+            p.setDescripcion("kjadhsdjhadjhadjhal");
+            p.setTiempo(1.33);
+            listaPlatos.add(p);
+        }
         ArrayAdapter arrayAdapter= new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,listaPlatos);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(listListView);
